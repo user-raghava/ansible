@@ -1,0 +1,27 @@
+---
+- name: install apache
+  become: yes
+  hosts: nodeservers
+  tasks:
+
+    - name: update packages and install apache
+      ansible.builtin.apt:
+        name: apache2
+        update_cache: yes
+        state: present
+
+    - name: copy the website files
+      ansible.builtin.copy:
+        src: ./websites/garage/
+        dest: /var/www/html/  
+
+    - name: enable and start apache service
+      ansible.builtin.systemd:
+        name: apache2
+        state: started
+      when: not ansible_check_mode    # Skip this task when in check mode
+
+      
+
+
+    
