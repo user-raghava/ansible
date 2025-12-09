@@ -1,0 +1,29 @@
+---
+- name: install tomcat 10
+  hosts: ubuntu
+  become: yes
+  vars:
+    url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.50/bin/apache-tomcat-10.1.50.tar.gz
+
+  tasks:
+    - name: update packages and install java # sudo apt install openjdk-17-jdk
+      ansible.builtin.apt:
+        name: "{{ java_package_name }}"
+        update_cache: yes
+        state: present
+
+    - name: create tomcat user # sudo useradd -m -d /opt/tomcat -s /bin/false tomcat
+      ansible.builtin.user:
+        name: "{{ user_name }}"
+        create_home: yes
+        state: present
+        home: "{{ user_home }}"
+        shell: /bin/false
+        system: no
+
+    - name: download and extracting tomcat # sudo tar xvf apache-tomcat-10.1.50.tar.gz --strip-components=1
+      ansible.builtin.unarchive:
+        src: "{{ url }}"
+        dest: "{{ user_home }}"
+        remote_src: yes
+        extra_opts: [--strip-components=1]

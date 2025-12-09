@@ -1,0 +1,10 @@
+[ubuntu]
+localhost
+node1 ansible_host=192.168.56.21 ansible_user=ubuntu 
+
+[redhat]
+node2 ansible_host=192.168.56.22 ansible_user=rocky8
+
+[appservers]
+node1 ansible_host=192.168.56.21 ansible_user=ubuntu
+node2 ansible_host=192.168.56.22 ansible_user=rocky8
