@@ -1,0 +1,10 @@
+Welcome to {{ ansible_hostname }}!
+This system is managed by Ansible.
+
+OS: {{ ansible_distribution }} {{ ansible_distribution_version }}
+OS family: {{ ansible_os_family }}
+IPv4: {{ ansible_default_ipv4.address }}
+CPU: {{ ansible_processor[2] }}
+RAM: {{ ansible_memtotal_mb }}MB
+User: {{ ansible_user_id }}
+Environment: {{ env_name }}

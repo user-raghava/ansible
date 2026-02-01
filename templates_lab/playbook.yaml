@@ -1,0 +1,11 @@
+---
+- name: testing templates
+  hosts: nodes
+  tasks:
+    - ansible.builtin.copy:
+        src: file
+        dest: /tmp/file_copy
+        
+    - ansible.builtin.template:
+        src: file.j2
+        dest: /tmp/file_j2.txt

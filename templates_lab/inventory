@@ -1,0 +1,3 @@
+[nodes]
+node1   env_name=UAT
+node2   env_name=PROD 
