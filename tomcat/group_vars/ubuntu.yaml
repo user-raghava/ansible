@@ -1,5 +1,0 @@
-# localhost and node1
-java_package_name: openjdk-17-jdk
-user_name: tomcat
-user_home: /opt/tomcat
-url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.50/bin/apache-tomcat-10.4.3.tar.gz
